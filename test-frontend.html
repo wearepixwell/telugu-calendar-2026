@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Frontend Test</title>
+    <link rel="icon" type="image/svg+xml" href="images/favicon.svg">
+    <link rel="alternate icon" href="images/favicon.svg">
+    <script src="js/api-config.js"></script>
+    <script src="js/common.js"></script>
+</head>
+<body>
+    <h1>Testing Frontend API Integration</h1>
+    <div id="result"></div>
+    <script>
+        async function test() {
+            const resultDiv = document.getElementById('result');
+            resultDiv.innerHTML = '<p>Testing...</p>';
+            
+            try {
+                // Test 1: Check current region
+                const region = window.teluguCalendar?.currentRegion || 'NOT SET';
+                resultDiv.innerHTML += '<p><strong>Current Region:</strong> ' + region + '</p>';
+                
+                // Test 2: Fetch data from API
+                const date = '2025-12-18';
+                const data = await window.APIService.getPanchangam(date, region);
+                
+                if (data) {
+                    resultDiv.innerHTML += '<p><strong>✅ SUCCESS!</strong> Data loaded successfully</p>';
+                    resultDiv.innerHTML += '<pre>' + JSON.stringify(data, null, 2) + '</pre>';
+                } else {
+                    resultDiv.innerHTML += '<p><strong>❌ FAILED:</strong> No data returned</p>';
+                }
+            } catch (error) {
+                resultDiv.innerHTML += '<p><strong>❌ ERROR:</strong> ' + error.message + '</p>';
+            }
+        }
+        
+        // Run test after DOM loads
+        window.addEventListener('DOMContentLoaded', test);
+    </script>
+</body>
+</html>

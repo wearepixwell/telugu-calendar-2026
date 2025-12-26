@@ -1,0 +1,669 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Telugu Festivals 2026 - Complete list of Telugu festivals and special days">
+    <title>Festivals - Telugu Calendar 2026</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="icon" type="image/svg+xml" href="images/favicon.svg">
+    <link rel="alternate icon" href="images/favicon.svg">
+    <link rel="stylesheet" href="css/style.css?v=3">
+</head>
+<body>
+    <!-- Top Navigation Bar -->
+    <nav class="top-nav">
+        <div class="nav-container">
+            <a href="today.html" class="logo">
+                <img src="images/logo.svg" alt="Telugu Calendar" class="logo-image">
+            </a>
+
+            <ul class="nav-menu">
+                <li><a href="today.html" id="nav-today">Today</a></li>
+                <li><a href="month-calendar.html" id="nav-months">Months</a></li>
+                <li><a href="index.html" id="nav-year">Year</a></li>
+                <li><a href="festivals.html" class="active" id="nav-festivals">Festivals</a></li>
+                <li><a href="muhurtam.html" id="nav-muhurtam">Muhurtam</a></li>
+            </ul>
+
+            <div class="nav-controls">
+                <div class="region-selector-nav">
+                    <select id="region" class="nav-select">
+                        <option value="amaravati">Amaravati, India</option>
+                        <option value="hyderabad">Hyderabad, India</option>
+                        <option value="atlanta">Atlanta, USA</option>
+                        <option value="chicago">Chicago, USA</option>
+                        <option value="newark">Newark, USA</option>
+                        <option value="newyork">New York, USA</option>
+                        <option value="phoenix">Phoenix, USA</option>
+                        <option value="sanfrancisco">San Francisco, USA</option>
+                        <option value="losangeles">Los Angeles, USA</option>
+                        <option value="toronto">Toronto, Canada</option>
+                        <option value="london">London, UK</option>
+                        <option value="auckland">Auckland, New Zealand</option>
+                        <option value="sydney">Sydney, Australia</option>
+                        <option value="capetown">Cape Town, South Africa</option>
+                        <option value="riyadh">Riyadh, Saudi Arabia</option>
+                        <option value="dubai">Dubai, UAE</option>
+                        <option value="singapore">Singapore</option>
+                        <option value="kualalumpur">Kuala Lumpur, Malaysia</option>
+                    </select>
+                </div>
+
+                <button id="lang-toggle" class="lang-btn-nav">
+                    <span class="lang-en">తెలుగు</span>
+                    <span class="lang-te" style="display:none;">English</span>
+                </button>
+            </div>
+
+            <button class="mobile-menu-toggle" id="mobile-menu-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+
+            <button id="lang-toggle-mobile" class="lang-toggle-mobile">
+                <span class="lang-mobile-en">తె</span>
+                <span class="lang-mobile-te" style="display:none;">EN</span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Header -->
+    <header>
+        <div class="header-content">
+            <h1 id="festivals-page-title">Telugu Festivals 2026</h1>
+            <p id="festivals-subtitle">Complete list of Telugu festivals and auspicious days</p>
+
+            <div class="header-year-selector" style="margin-top: 15px; text-align: center;">
+                <label for="year-select" style="font-weight: 500; margin-right: 10px;">Year:</label>
+                <select id="year-select" style="padding: 8px 16px; font-size: 1em; border: 1px solid rgba(255,255,255,0.3); background: rgba(255,255,255,0.2); color: white; border-radius: 4px; cursor: pointer;">
+                    <option value="2025">2025</option>
+                    <option value="2026" selected>2026</option>
+                    <option value="2027">2027</option>
+                </select>
+            </div>
+
+            <div class="header-region-selector">
+                <label for="region-header">Region:</label>
+                <select id="region-header" class="region-select-header">
+                    <option value="amaravati">Amaravati, India</option>
+                    <option value="hyderabad">Hyderabad, India</option>
+                    <option value="atlanta">Atlanta, USA</option>
+                    <option value="chicago">Chicago, USA</option>
+                    <option value="newark">Newark, USA</option>
+                    <option value="newyork">New York, USA</option>
+                    <option value="phoenix">Phoenix, USA</option>
+                    <option value="sanfrancisco">San Francisco, USA</option>
+                    <option value="losangeles">Los Angeles, USA</option>
+                    <option value="toronto">Toronto, Canada</option>
+                    <option value="london">London, UK</option>
+                    <option value="auckland">Auckland, New Zealand</option>
+                    <option value="sydney">Sydney, Australia</option>
+                    <option value="capetown">Cape Town, South Africa</option>
+                    <option value="riyadh">Riyadh, Saudi Arabia</option>
+                    <option value="dubai">Dubai, UAE</option>
+                    <option value="singapore">Singapore</option>
+                    <option value="kualalumpur">Kuala Lumpur, Malaysia</option>
+                </select>
+            </div>
+        </div>
+    </header>
+
+    <div class="container-clean">
+        <main class="main-content">
+            <!-- Festivals Table by Month -->
+            <section class="festivals-main-section">
+                <div class="festivals-table-wrapper">
+                    <table class="festivals-full-table" id="festivals-full-table">
+                        <thead>
+                            <tr>
+                                <th>Month</th>
+                                <th>Date</th>
+                                <th>Day</th>
+                                <th>Festival Name</th>
+                                <th>Significance</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- January -->
+                            <tr class="month-group">
+                                <td rowspan="1" class="month-cell">January</td>
+                                <td>14</td>
+                                <td>Tuesday</td>
+                                <td><a href="festival-detail.html?festival=makara-sankranti" class="festival-link-table">Makara Sankranti / Pongal</a></td>
+                                <td>Harvest festival, Sun's transition to Capricorn</td>
+                            </tr>
+
+                            <!-- February -->
+                            <tr class="month-group">
+                                <td rowspan="1" class="month-cell">February</td>
+                                <td>26</td>
+                                <td>Wednesday</td>
+                                <td><a href="festival-detail.html?festival=maha-shivaratri" class="festival-link-table">Maha Shivaratri</a></td>
+                                <td>Great night of Lord Shiva</td>
+                            </tr>
+
+                            <!-- March -->
+                            <tr class="month-group">
+                                <td rowspan="1" class="month-cell">March</td>
+                                <td>22</td>
+                                <td>Saturday</td>
+                                <td><a href="festival-detail.html?festival=ugadi" class="festival-link-table">Ugadi (Telugu New Year)</a></td>
+                                <td>Beginning of new year, new beginnings</td>
+                            </tr>
+
+                            <!-- April -->
+                            <tr class="month-group">
+                                <td rowspan="2" class="month-cell">April</td>
+                                <td>1</td>
+                                <td>Tuesday</td>
+                                <td><a href="festival-detail.html?festival=rama-navami" class="festival-link-table">Sri Rama Navami</a></td>
+                                <td>Birthday of Lord Rama</td>
+                            </tr>
+                            <tr>
+                                <td>13</td>
+                                <td>Sunday</td>
+                                <td><a href="festival-detail.html?festival=hanuman-jayanti" class="festival-link-table">Hanuman Jayanti</a></td>
+                                <td>Birthday of Lord Hanuman</td>
+                            </tr>
+
+                            <!-- August -->
+                            <tr class="month-group">
+                                <td rowspan="2" class="month-cell">August</td>
+                                <td>15</td>
+                                <td>Friday</td>
+                                <td><a href="festival-detail.html?festival=krishna-janmashtami" class="festival-link-table">Krishna Janmashtami</a></td>
+                                <td>Birthday of Lord Krishna</td>
+                            </tr>
+                            <tr>
+                                <td>26</td>
+                                <td>Tuesday</td>
+                                <td><a href="festival-detail.html?festival=vinayaka-chavithi" class="festival-link-table">Vinayaka Chavithi</a></td>
+                                <td>Birthday of Lord Ganesha</td>
+                            </tr>
+
+                            <!-- September -->
+                            <tr class="month-group">
+                                <td rowspan="1" class="month-cell">September</td>
+                                <td>24</td>
+                                <td>Wednesday</td>
+                                <td><a href="festival-detail.html?festival=dasara" class="festival-link-table">Dasara / Vijayadashami</a></td>
+                                <td>Victory of good over evil</td>
+                            </tr>
+
+                            <!-- October -->
+                            <tr class="month-group">
+                                <td rowspan="2" class="month-cell">October</td>
+                                <td>3</td>
+                                <td>Friday</td>
+                                <td><a href="festival-detail.html?festival=dussehra" class="festival-link-table">Dussehra</a></td>
+                                <td>Victory celebration</td>
+                            </tr>
+                            <tr>
+                                <td>20</td>
+                                <td>Monday</td>
+                                <td><a href="festival-detail.html?festival=deepavali" class="festival-link-table">Deepavali (Diwali)</a></td>
+                                <td>Festival of lights</td>
+                            </tr>
+
+                            <!-- November -->
+                            <tr class="month-group">
+                                <td rowspan="1" class="month-cell">November</td>
+                                <td>1</td>
+                                <td>Saturday</td>
+                                <td><a href="festival-detail.html?festival=karthika-masam" class="festival-link-table">Karthika Masam Begins</a></td>
+                                <td>Auspicious month for lighting lamps</td>
+                            </tr>
+
+                            <!-- December -->
+                            <tr class="month-group">
+                                <td rowspan="1" class="month-cell">December</td>
+                                <td>25</td>
+                                <td>Thursday</td>
+                                <td><a href="festival-detail.html?festival=christmas" class="festival-link-table">Christmas</a></td>
+                                <td>Birth of Jesus Christ</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <!-- Additional Festival Information -->
+            <section class="festival-info-cards">
+                <div class="festival-info-card">
+                    <div class="info-card-icon">
+                        <span class="material-icons" style="font-size: 3em; color: #003CE2;">calendar_today</span>
+                    </div>
+                    <h3>Monthly Ekadasi</h3>
+                    <p>Ekadasi is observed twice a month during Sukla Paksha (waxing moon) and Krishna Paksha (waning moon). It's a day of fasting and spiritual practices.</p>
+                </div>
+
+                <div class="festival-info-card">
+                    <div class="info-card-icon">
+                        <span class="material-icons" style="font-size: 3em; color: #003CE2;">brightness_5</span>
+                    </div>
+                    <h3>Purnima Days</h3>
+                    <p>Full moon days are considered highly auspicious in Telugu tradition. Each month's Purnima has special significance for worship and rituals.</p>
+                </div>
+
+                <div class="festival-info-card">
+                    <div class="info-card-icon">
+                        <span class="material-icons" style="font-size: 3em; color: #003CE2;">nights_stay</span>
+                    </div>
+                    <h3>Amavasya Days</h3>
+                    <p>New moon days are important for performing rituals for ancestors (Pitru Tarpana) and seeking blessings from departed souls.</p>
+                </div>
+            </section>
+
+            <!-- FAQ Section -->
+            <section class="faq-section">
+                <h2 class="faq-title">Frequently Asked Questions</h2>
+
+                <div class="faq-item">
+                    <h3 class="faq-question">Why are Telugu festivals based on the lunar calendar?</h3>
+                    <div class="faq-answer">
+                        <p>Telugu festivals are primarily based on the lunar calendar (Panchangam) because traditional Hindu astronomy follows the cycles of the moon. Each lunar month (Masam) is divided into two fortnights - Sukla Paksha (waxing moon) and Krishna Paksha (waning moon). Festivals are celebrated on specific Tithis (lunar days) which have spiritual and astrological significance. This lunar system ensures that festivals align with cosmic energies and astronomical events that have been observed for thousands of years.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <h3 class="faq-question">How can I prepare for upcoming Telugu festivals?</h3>
+                    <div class="faq-answer">
+                        <p>To prepare for Telugu festivals, check the festival dates on this calendar page and plan ahead. Most festivals involve cleaning and decorating your home, preparing traditional foods and sweets, purchasing new clothes, and gathering puja items like flowers, incense, and oil lamps. For major festivals like Ugadi, Dasara, or Deepavali, planning 1-2 weeks in advance is recommended. You can also read about each festival's significance and rituals by clicking on the festival name in the table above.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <h3 class="faq-question">What is the difference between Dasara and Dussehra?</h3>
+                    <div class="faq-answer">
+                        <p>Dasara and Dussehra refer to the same festival period but emphasize different aspects. Dasara (or Navaratri) focuses on the nine nights of worshipping Goddess Durga and her victory over the demon Mahishasura. Dussehra (Vijayadashami) is the tenth day that celebrates Lord Rama's victory over Ravana. In Telugu tradition, both aspects are celebrated - the nine nights of Durga worship followed by the tenth day commemorating Rama's triumph. The festival symbolizes the victory of good over evil.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <h3 class="faq-question">Why do Telugu festival dates change every year?</h3>
+                    <div class="faq-answer">
+                        <p>Telugu festival dates change every year because they follow the lunar calendar (Panchangam), which is based on moon cycles rather than the solar Gregorian calendar. A lunar month is approximately 29.5 days, making the lunar year about 11 days shorter than the solar year. To keep festivals aligned with seasons, an extra month (Adhika Masam) is added approximately every 3 years. This is why festivals like Ugadi, Dasara, and Deepavali occur on different dates each year when viewed on the Gregorian calendar, but they always fall on the same Tithi in the lunar calendar.</p>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <footer class="site-footer">
+        <div class="footer-content">
+            <div class="footer-section footer-main">
+                <div class="footer-logo">
+                    <img src="images/logo-white.svg" alt="Telugu Calendar" class="footer-logo-image">
+                </div>
+                <h3>Telugu Calendar</h3>
+                <p><a href="https://www.telugucalendar.io" style="color: #ccc; text-decoration: none;">www.telugucalendar.io</a></p>
+                <p>Your comprehensive guide to Telugu Panchangam and auspicious times</p>
+            </div>
+
+            <div class="footer-section">
+                <h4>Quick Links</h4>
+                <ul class="footer-links">
+                    <li><a href="today.html">Home (Today)</a></li>
+                    <li><a href="month-calendar.html">Months</a></li>
+                    <li><a href="index.html">Year</a></li>
+                    <li><a href="festivals.html">Festivals</a></li>
+                    <li><a href="muhurtam.html">Muhurtam</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h4>Information</h4>
+                <ul class="footer-links">
+                    <li><a href="privacy-policy.html">Privacy Policy</a></li>
+                    <li><a href="about.html">About telugucalendar.io</a></li>
+                    <li><a href="sitemap.html">Site Map</a></li>
+                    <li><a href="faq.html">FAQ's</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h4>Available Regions</h4>
+                <ul class="footer-links">
+                    <li>India (Amaravati, Hyderabad)</li>
+                    <li>USA (New York, Chicago, Phoenix)</li>
+                    <li>Canada (Toronto)</li>
+                    <li>UK (London)</li>
+                    <li>Australia (Sydney)</li>
+                    <li>UAE (Dubai)</li>
+                    <li>Singapore, Malaysia</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p class="footer-made-with">Made with <span style="color: #ff0000;">❤</span> for all the Telugites</p>
+            <p class="footer-copyright">&copy; 2025 Pixwell Design Studio LLC. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="js/api-config.js"></script>
+    <script src="js/common.js"></script>
+
+    <script>
+        let currentYear = 2026;
+
+        // Festival data by year
+        const festivalsByYear = {
+            2025: {
+                'makara-sankranti': { month: 'January', date: 14, day: 'Tuesday' },
+                'maha-shivaratri': { month: 'February', date: 26, day: 'Wednesday' },
+                'ugadi': { month: 'March', date: 30, day: 'Sunday' },
+                'rama-navami': { month: 'April', date: 6, day: 'Sunday' },
+                'hanuman-jayanti': { month: 'April', date: 18, day: 'Friday' },
+                'krishna-janmashtami': { month: 'August', date: 16, day: 'Saturday' },
+                'vinayaka-chavithi': { month: 'August', date: 27, day: 'Wednesday' },
+                'dasara': { month: 'October', date: 2, day: 'Thursday' },
+                'dussehra': { month: 'October', date: 3, day: 'Friday' },
+                'deepavali': { month: 'October', date: 21, day: 'Tuesday' },
+                'karthika-masam': { month: 'November', date: 3, day: 'Monday' },
+                'christmas': { month: 'December', date: 25, day: 'Thursday' }
+            },
+            2026: {
+                'makara-sankranti': { month: 'January', date: 14, day: 'Wednesday' },
+                'maha-shivaratri': { month: 'February', date: 15, day: 'Sunday' },
+                'ugadi': { month: 'March', date: 19, day: 'Thursday' },
+                'rama-navami': { month: 'March', date: 27, day: 'Friday' },
+                'hanuman-jayanti': { month: 'April', date: 8, day: 'Wednesday' },
+                'krishna-janmashtami': { month: 'September', date: 4, day: 'Friday' },
+                'vinayaka-chavithi': { month: 'September', date: 15, day: 'Tuesday' },
+                'dasara': { month: 'October', date: 21, day: 'Wednesday' },
+                'dussehra': { month: 'October', date: 22, day: 'Thursday' },
+                'deepavali': { month: 'November', date: 9, day: 'Monday' },
+                'karthika-masam': { month: 'November', date: 22, day: 'Sunday' },
+                'christmas': { month: 'December', date: 25, day: 'Friday' }
+            },
+            2027: {
+                'makara-sankranti': { month: 'January', date: 14, day: 'Thursday' },
+                'maha-shivaratri': { month: 'March', date: 5, day: 'Friday' },
+                'ugadi': { month: 'April', date: 8, day: 'Thursday' },
+                'rama-navami': { month: 'April', date: 16, day: 'Friday' },
+                'hanuman-jayanti': { month: 'April', date: 28, day: 'Wednesday' },
+                'krishna-janmashtami': { month: 'August', date: 25, day: 'Wednesday' },
+                'vinayaka-chavithi': { month: 'September', date: 5, day: 'Sunday' },
+                'dasara': { month: 'October', date: 11, day: 'Monday' },
+                'dussehra': { month: 'October', date: 12, day: 'Tuesday' },
+                'deepavali': { month: 'October', date: 29, day: 'Friday' },
+                'karthika-masam': { month: 'November', date: 12, day: 'Friday' },
+                'christmas': { month: 'December', date: 25, day: 'Saturday' }
+            }
+        };
+
+        const festivalInfo = {
+            'makara-sankranti': { name: 'Makara Sankranti / Pongal', significance: 'Harvest festival, Sun\'s transition to Capricorn' },
+            'maha-shivaratri': { name: 'Maha Shivaratri', significance: 'Great night of Lord Shiva' },
+            'ugadi': { name: 'Ugadi (Telugu New Year)', significance: 'Beginning of new year, new beginnings' },
+            'rama-navami': { name: 'Sri Rama Navami', significance: 'Birthday of Lord Rama' },
+            'hanuman-jayanti': { name: 'Hanuman Jayanti', significance: 'Birthday of Lord Hanuman' },
+            'krishna-janmashtami': { name: 'Krishna Janmashtami', significance: 'Birthday of Lord Krishna' },
+            'vinayaka-chavithi': { name: 'Vinayaka Chavithi', significance: 'Birthday of Lord Ganesha' },
+            'dasara': { name: 'Dasara / Vijayadashami', significance: 'Victory of good over evil' },
+            'dussehra': { name: 'Dussehra', significance: 'Victory celebration' },
+            'deepavali': { name: 'Deepavali (Diwali)', significance: 'Festival of lights' },
+            'karthika-masam': { name: 'Karthika Masam Begins', significance: 'Auspicious month for lighting lamps' },
+            'christmas': { name: 'Christmas', significance: 'Birth of Jesus Christ' }
+        };
+
+        function updateFestivalsTitle() {
+            const festivalsPageTitle = document.getElementById('festivals-page-title');
+            if (festivalsPageTitle) {
+                festivalsPageTitle.textContent = `Telugu Festivals ${currentYear}`;
+            }
+        }
+
+        function updateFestivalsTable() {
+            const tbody = document.querySelector('.festivals-full-table tbody');
+            if (!tbody) return;
+
+            const yearData = festivalsByYear[currentYear];
+            if (!yearData) return;
+
+            // Group festivals by month
+            const monthGroups = {};
+            Object.keys(yearData).forEach(festivalSlug => {
+                const festival = yearData[festivalSlug];
+                const info = festivalInfo[festivalSlug];
+                if (!monthGroups[festival.month]) {
+                    monthGroups[festival.month] = [];
+                }
+                monthGroups[festival.month].push({
+                    slug: festivalSlug,
+                    ...festival,
+                    ...info
+                });
+            });
+
+            // Sort months
+            const monthOrder = ['January', 'February', 'March', 'April', 'May', 'June',
+                               'July', 'August', 'September', 'October', 'November', 'December'];
+
+            // Build table HTML
+            let html = '';
+            monthOrder.forEach(month => {
+                if (monthGroups[month]) {
+                    const festivals = monthGroups[month].sort((a, b) => a.date - b.date);
+                    festivals.forEach((festival, index) => {
+                        html += '<tr class="month-group">';
+                        if (index === 0) {
+                            html += `<td rowspan="${festivals.length}" class="month-cell">${month}</td>`;
+                        }
+                        html += `<td>${festival.date}</td>`;
+                        html += `<td>${festival.day}</td>`;
+                        html += `<td><a href="festival-detail.html?festival=${festival.slug}&year=${currentYear}" class="festival-link-table">${festival.name}</a></td>`;
+                        html += `<td>${festival.significance}</td>`;
+                        html += '</tr>';
+                    });
+                }
+            });
+
+            tbody.innerHTML = html;
+        }
+
+        function setupYearSelector() {
+            const yearSelect = document.getElementById('year-select');
+            if (yearSelect) {
+                yearSelect.addEventListener('change', function() {
+                    currentYear = parseInt(this.value);
+                    updateFestivalsTitle();
+                    updateFestivalsTable();
+                });
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            // Get year from URL parameter or use default
+            const urlParams = new URLSearchParams(window.location.search);
+            const yearParam = urlParams.get('year');
+            if (yearParam) {
+                currentYear = parseInt(yearParam);
+            }
+
+            // Set year selector to current year
+            const yearSelect = document.getElementById('year-select');
+            if (yearSelect) {
+                yearSelect.value = currentYear;
+            }
+
+            // Update title and table
+            updateFestivalsTitle();
+            updateFestivalsTable();
+
+            // Setup year selector
+            setupYearSelector();
+        });
+    </script>
+
+    <style>
+        /* Festivals Hero Section */
+        .festivals-hero {
+            background: linear-gradient(135deg, #003CE2 0%, #0052ff 100%);
+            color: white;
+            padding: 60px 20px;
+            text-align: center;
+            border-radius: 10px;
+            margin-bottom: 40px;
+            box-shadow: 0 4px 12px rgba(0,60,226,0.3);
+        }
+
+        .festivals-main-title {
+            font-size: 2.5em;
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+
+        .festivals-subtitle {
+            font-size: 1.2em;
+            opacity: 0.95;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        /* Main Festivals Section */
+        .festivals-main-section {
+            background: white;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+            margin-bottom: 40px;
+        }
+
+        .festivals-table-wrapper {
+            overflow-x: auto;
+        }
+
+        .festivals-full-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.95em;
+        }
+
+        .festivals-full-table thead {
+            background: #003CE2;
+            color: white;
+        }
+
+        .festivals-full-table th {
+            padding: 18px 15px;
+            text-align: left;
+            font-weight: 600;
+            font-size: 1em;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .festivals-full-table td {
+            padding: 15px;
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        .festivals-full-table tbody tr:hover {
+            background: #f8f9ff;
+            transition: background 0.2s ease;
+        }
+
+        .festivals-full-table tbody tr:last-child td {
+            border-bottom: none;
+        }
+
+        .month-cell {
+            background: #f0f4ff;
+            font-weight: 600;
+            color: #003CE2;
+            vertical-align: middle;
+            border-right: 3px solid #003CE2;
+        }
+
+        .festival-link-table {
+            color: #003CE2;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.2s ease;
+            display: inline-block;
+        }
+
+        .festival-link-table:hover {
+            color: #0028a3;
+            text-decoration: underline;
+            transform: translateX(5px);
+        }
+
+        /* Festival Info Cards */
+        .festival-info-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .festival-info-card {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .festival-info-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 20px rgba(0,60,226,0.15);
+        }
+
+        .info-card-icon {
+            margin-bottom: 20px;
+        }
+
+        .festival-info-card h3 {
+            color: #003CE2;
+            margin-bottom: 15px;
+            font-size: 1.4em;
+        }
+
+        .festival-info-card p {
+            color: #666;
+            line-height: 1.6;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .festivals-hero {
+                padding: 40px 20px;
+            }
+
+            .festivals-main-title {
+                font-size: 1.8em;
+            }
+
+            .festivals-subtitle {
+                font-size: 1em;
+            }
+
+            .festivals-main-section {
+                padding: 20px;
+            }
+
+            .festivals-full-table {
+                font-size: 0.85em;
+            }
+
+            .festivals-full-table th,
+            .festivals-full-table td {
+                padding: 10px 8px;
+            }
+
+            .festival-info-cards {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</body>
+</html>

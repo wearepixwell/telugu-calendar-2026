@@ -1,0 +1,16 @@
+<svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Calendar background -->
+  <rect x="6" y="8" width="36" height="36" rx="4" fill="#003CE2"/>
+
+  <!-- Calendar header bar -->
+  <rect x="6" y="8" width="36" height="8" rx="4" fill="#0028a3"/>
+  <rect x="6" y="12" width="36" height="4" fill="#0028a3"/>
+
+  <!-- Binding rings -->
+  <circle cx="14" cy="10" r="1.5" fill="white"/>
+  <circle cx="24" cy="10" r="1.5" fill="white"/>
+  <circle cx="34" cy="10" r="1.5" fill="white"/>
+
+  <!-- Telugu text తె -->
+  <text x="24" y="35" font-family="'Google Sans', 'Noto Sans Telugu', Arial, sans-serif" font-size="18" font-weight="700" fill="white" text-anchor="middle">తె</text>
+</svg>

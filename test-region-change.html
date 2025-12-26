@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Test Region Change</title>
+    <link rel="icon" type="image/svg+xml" href="images/favicon.svg">
+    <link rel="alternate icon" href="images/favicon.svg">
+    <script src="js/common.js"></script>
+</head>
+<body>
+    <h1>Test Region Change</h1>
+    <p>Initial Region: <span id="initial-region"></span></p>
+    <p>After Change: <span id="changed-region"></span></p>
+    
+    <script>
+        // Test that getter functions work
+        document.addEventListener('DOMContentLoaded', function() {
+            // Show initial region
+            document.getElementById('initial-region').textContent = window.teluguCalendar.currentRegion;
+            
+            // Simulate region change by triggering the event like the dropdown does
+            setTimeout(function() {
+                // This simulates what happens when user changes dropdown
+                const event = new CustomEvent('regionChanged', { detail: { region: 'chicago' } });
+                
+                // Update the internal variable (this is what setupRegionSelector does)
+                // We need to access the selector to trigger the actual change
+                const regionSelect = document.getElementById('region');
+                if (regionSelect) {
+                    regionSelect.value = 'chicago';
+                    regionSelect.dispatchEvent(new Event('change'));
+                }
+                
+                // Now check if getter returns new value
+                setTimeout(function() {
+                    document.getElementById('changed-region').textContent = window.teluguCalendar.currentRegion;
+                    
+                    if (window.teluguCalendar.currentRegion === 'chicago') {
+                        alert('✅ SUCCESS! Region getter is working correctly.');
+                    } else {
+                        alert('❌ FAILED! Region is still: ' + window.teluguCalendar.currentRegion);
+                    }
+                }, 100);
+            }, 500);
+        });
+    </script>
+    
+    <!-- Hidden region selector for test -->
+    <select id="region" style="display:none;">
+        <option value="amaravati">Amaravati</option>
+        <option value="chicago">Chicago</option>
+    </select>
+</body>
+</html>

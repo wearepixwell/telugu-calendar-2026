@@ -1,0 +1,353 @@
+{
+  "date": "2026-01-01",
+  "regions": {
+    "chicago": {
+      "sunrise": "07:15 AM",
+      "sunset": "04:32 PM",
+      "moonrise": "08:45 AM",
+      "moonset": "06:20 PM",
+      "masamu": {
+        "telugu": "మార్గశిర",
+        "english": "Margasira"
+      },
+      "paksham": {
+        "telugu": "శుక్ల పక్షం",
+        "english": "Sukla Paksham"
+      },
+      "tithi": {
+        "telugu": "ద్వితీయ",
+        "english": "Dvitiya"
+      },
+      "nakshatram": {
+        "telugu": "రోహిణి",
+        "english": "Rohini"
+      },
+      "yoga": {
+        "telugu": "వరియాన్",
+        "english": "Variyan"
+      },
+      "karanam": {
+        "telugu": "బవ",
+        "english": "Bava"
+      },
+      "rahukalam": {
+        "start": "01:30 PM",
+        "end": "03:00 PM"
+      },
+      "yamagandam": {
+        "start": "10:30 AM",
+        "end": "12:00 PM"
+      },
+      "varjyam": {
+        "start": "09:15 AM",
+        "end": "10:45 AM"
+      },
+      "durmuhurtam": {
+        "morning": {
+          "start": "08:30 AM",
+          "end": "09:20 AM"
+        },
+        "evening": {
+          "start": "05:30 PM",
+          "end": "06:20 PM"
+        }
+      },
+      "abhijit": {
+        "start": "11:55 AM",
+        "end": "12:45 PM"
+      },
+      "festivals": ["New Year"],
+      "specialDays": ["Western New Year"]
+    },
+    "newyork": {
+      "sunrise": "07:20 AM",
+      "sunset": "04:38 PM",
+      "moonrise": "08:50 AM",
+      "moonset": "06:25 PM",
+      "masamu": {
+        "telugu": "మార్గశిర",
+        "english": "Margasira"
+      },
+      "paksham": {
+        "telugu": "శుక్ల పక్షం",
+        "english": "Sukla Paksham"
+      },
+      "tithi": {
+        "telugu": "ద్వితీయ",
+        "english": "Dvitiya"
+      },
+      "nakshatram": {
+        "telugu": "రోహిణి",
+        "english": "Rohini"
+      },
+      "yoga": {
+        "telugu": "వరియాన్",
+        "english": "Variyan"
+      },
+      "karanam": {
+        "telugu": "బవ",
+        "english": "Bava"
+      },
+      "rahukalam": {
+        "start": "01:35 PM",
+        "end": "03:05 PM"
+      },
+      "yamagandam": {
+        "start": "10:35 AM",
+        "end": "12:05 PM"
+      },
+      "varjyam": {
+        "start": "09:20 AM",
+        "end": "10:50 AM"
+      },
+      "durmuhurtam": {
+        "morning": {
+          "start": "08:35 AM",
+          "end": "09:25 AM"
+        },
+        "evening": {
+          "start": "05:35 PM",
+          "end": "06:25 PM"
+        }
+      },
+      "abhijit": {
+        "start": "12:00 PM",
+        "end": "12:50 PM"
+      },
+      "festivals": ["New Year"],
+      "specialDays": ["Western New Year"]
+    },
+    "india": {
+      "sunrise": "06:30 AM",
+      "sunset": "05:45 PM",
+      "moonrise": "07:15 AM",
+      "moonset": "06:00 PM",
+      "masamu": {
+        "telugu": "మార్గశిర",
+        "english": "Margasira"
+      },
+      "paksham": {
+        "telugu": "శుక్ల పక్షం",
+        "english": "Sukla Paksham"
+      },
+      "tithi": {
+        "telugu": "ద్వితీయ",
+        "english": "Dvitiya"
+      },
+      "nakshatram": {
+        "telugu": "రోహిణి",
+        "english": "Rohini"
+      },
+      "yoga": {
+        "telugu": "వరియాన్",
+        "english": "Variyan"
+      },
+      "karanam": {
+        "telugu": "బవ",
+        "english": "Bava"
+      },
+      "rahukalam": {
+        "start": "12:00 PM",
+        "end": "01:30 PM"
+      },
+      "yamagandam": {
+        "start": "09:00 AM",
+        "end": "10:30 AM"
+      },
+      "varjyam": {
+        "start": "08:00 AM",
+        "end": "09:30 AM"
+      },
+      "durmuhurtam": {
+        "morning": {
+          "start": "07:30 AM",
+          "end": "08:20 AM"
+        },
+        "evening": {
+          "start": "04:30 PM",
+          "end": "05:20 PM"
+        }
+      },
+      "abhijit": {
+        "start": "11:45 AM",
+        "end": "12:35 PM"
+      },
+      "festivals": ["New Year"],
+      "specialDays": ["Western New Year"]
+    },
+    "australia": {
+      "sunrise": "05:45 AM",
+      "sunset": "08:15 PM",
+      "moonrise": "06:30 AM",
+      "moonset": "08:00 PM",
+      "masamu": {
+        "telugu": "మార్గశిర",
+        "english": "Margasira"
+      },
+      "paksham": {
+        "telugu": "శుక్ల పక్షం",
+        "english": "Sukla Paksham"
+      },
+      "tithi": {
+        "telugu": "ద్వితీయ",
+        "english": "Dvitiya"
+      },
+      "nakshatram": {
+        "telugu": "రోహిణి",
+        "english": "Rohini"
+      },
+      "yoga": {
+        "telugu": "వరియాన్",
+        "english": "Variyan"
+      },
+      "karanam": {
+        "telugu": "బవ",
+        "english": "Bava"
+      },
+      "rahukalam": {
+        "start": "02:00 PM",
+        "end": "03:30 PM"
+      },
+      "yamagandam": {
+        "start": "11:00 AM",
+        "end": "12:30 PM"
+      },
+      "varjyam": {
+        "start": "09:30 AM",
+        "end": "11:00 AM"
+      },
+      "durmuhurtam": {
+        "morning": {
+          "start": "08:45 AM",
+          "end": "09:35 AM"
+        },
+        "evening": {
+          "start": "06:45 PM",
+          "end": "07:35 PM"
+        }
+      },
+      "abhijit": {
+        "start": "12:30 PM",
+        "end": "01:20 PM"
+      },
+      "festivals": ["New Year"],
+      "specialDays": ["Western New Year"]
+    },
+    "uk": {
+      "sunrise": "08:05 AM",
+      "sunset": "03:55 PM",
+      "moonrise": "09:20 AM",
+      "moonset": "05:45 PM",
+      "masamu": {
+        "telugu": "మార్గశిర",
+        "english": "Margasira"
+      },
+      "paksham": {
+        "telugu": "శుక్ల పక్షం",
+        "english": "Sukla Paksham"
+      },
+      "tithi": {
+        "telugu": "ద్వితీయ",
+        "english": "Dvitiya"
+      },
+      "nakshatram": {
+        "telugu": "రోహిణి",
+        "english": "Rohini"
+      },
+      "yoga": {
+        "telugu": "వరియాన్",
+        "english": "Variyan"
+      },
+      "karanam": {
+        "telugu": "బవ",
+        "english": "Bava"
+      },
+      "rahukalam": {
+        "start": "01:00 PM",
+        "end": "02:30 PM"
+      },
+      "yamagandam": {
+        "start": "10:00 AM",
+        "end": "11:30 AM"
+      },
+      "varjyam": {
+        "start": "08:45 AM",
+        "end": "10:15 AM"
+      },
+      "durmuhurtam": {
+        "morning": {
+          "start": "08:15 AM",
+          "end": "09:05 AM"
+        },
+        "evening": {
+          "start": "03:00 PM",
+          "end": "03:50 PM"
+        }
+      },
+      "abhijit": {
+        "start": "11:30 AM",
+        "end": "12:20 PM"
+      },
+      "festivals": ["New Year"],
+      "specialDays": ["Western New Year"]
+    },
+    "dubai": {
+      "sunrise": "06:55 AM",
+      "sunset": "05:35 PM",
+      "moonrise": "08:10 AM",
+      "moonset": "06:15 PM",
+      "masamu": {
+        "telugu": "మార్గశిర",
+        "english": "Margasira"
+      },
+      "paksham": {
+        "telugu": "శుక్ల పక్షం",
+        "english": "Sukla Paksham"
+      },
+      "tithi": {
+        "telugu": "ద్వితీయ",
+        "english": "Dvitiya"
+      },
+      "nakshatram": {
+        "telugu": "రోహిణి",
+        "english": "Rohini"
+      },
+      "yoga": {
+        "telugu": "వరియాన్",
+        "english": "Variyan"
+      },
+      "karanam": {
+        "telugu": "బవ",
+        "english": "Bava"
+      },
+      "rahukalam": {
+        "start": "01:15 PM",
+        "end": "02:45 PM"
+      },
+      "yamagandam": {
+        "start": "10:15 AM",
+        "end": "11:45 AM"
+      },
+      "varjyam": {
+        "start": "09:00 AM",
+        "end": "10:30 AM"
+      },
+      "durmuhurtam": {
+        "morning": {
+          "start": "08:05 AM",
+          "end": "08:55 AM"
+        },
+        "evening": {
+          "start": "05:05 PM",
+          "end": "05:55 PM"
+        }
+      },
+      "abhijit": {
+        "start": "11:50 AM",
+        "end": "12:40 PM"
+      },
+      "festivals": ["New Year"],
+      "specialDays": ["Western New Year"]
+    }
+  }
+}

@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Telugu Calendar 2026 - Daily Telugu Calendar with Nakshatram, Tithi, Rahukalam for all major cities worldwide">
+    <meta name="keywords" content="Telugu Calendar, Panchangam, Telugu Calendar 2026, Nakshatram, Tithi, Rahukalam, Telugu Calendar USA, Telugu Calendar India">
+    <title>Telugu Calendar 2026 - తెలుగు పంచాంగం</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="icon" type="image/svg+xml" href="images/favicon.svg">
+    <link rel="alternate icon" href="images/favicon.svg">
+    <link rel="stylesheet" href="css/style.css?v=3">
+</head>
+<body>
+    <!-- Top Navigation Bar -->
+    <nav class="top-nav">
+        <div class="nav-container">
+            <a href="today.html" class="logo">
+                <img src="images/logo.svg" alt="Telugu Calendar" class="logo-image">
+            </a>
+
+            <ul class="nav-menu">
+                <li><a href="today.html" id="nav-today">Today</a></li>
+                <li><a href="month-calendar.html" id="nav-months">Months</a></li>
+                <li><a href="index.html" class="active" id="nav-year">Year</a></li>
+                <li><a href="festivals.html" id="nav-festivals">Festivals</a></li>
+                <li><a href="muhurtam.html" id="nav-muhurtam">Muhurtam</a></li>
+            </ul>
+
+            <div class="nav-controls">
+                <div class="region-selector-nav">
+                    <select id="region" class="nav-select">
+                        <option value="amaravati">Amaravati, India</option>
+                        <option value="hyderabad">Hyderabad, India</option>
+                        <option value="atlanta">Atlanta, USA</option>
+                        <option value="chicago">Chicago, USA</option>
+                        <option value="newark">Newark, USA</option>
+                        <option value="newyork">New York, USA</option>
+                        <option value="phoenix">Phoenix, USA</option>
+                        <option value="sanfrancisco">San Francisco, USA</option>
+                        <option value="losangeles">Los Angeles, USA</option>
+                        <option value="toronto">Toronto, Canada</option>
+                        <option value="london">London, UK</option>
+                        <option value="auckland">Auckland, New Zealand</option>
+                        <option value="sydney">Sydney, Australia</option>
+                        <option value="capetown">Cape Town, South Africa</option>
+                        <option value="riyadh">Riyadh, Saudi Arabia</option>
+                        <option value="dubai">Dubai, UAE</option>
+                        <option value="singapore">Singapore</option>
+                        <option value="kualalumpur">Kuala Lumpur, Malaysia</option>
+                    </select>
+                </div>
+
+                <button id="lang-toggle" class="lang-btn-nav">
+                    <span class="lang-en">తెలుగు</span>
+                    <span class="lang-te" style="display:none;">English</span>
+                </button>
+            </div>
+
+            <button class="mobile-menu-toggle" id="mobile-menu-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+
+            <button id="lang-toggle-mobile" class="lang-toggle-mobile">
+                <span class="lang-mobile-en">తె</span>
+                <span class="lang-mobile-te" style="display:none;">EN</span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Header -->
+    <header>
+        <div class="header-content">
+            <h1 id="main-title">Telugu Calendar 2026</h1>
+            <p id="main-subtitle">Complete Daily Telugu Calendar with Auspicious Times</p>
+
+            <div class="header-year-selector" style="margin-top: 15px; text-align: center;">
+                <label for="year-select" style="font-weight: 500; margin-right: 10px;">Year:</label>
+                <select id="year-select" style="padding: 8px 16px; font-size: 1em; border: 1px solid rgba(255,255,255,0.3); background: rgba(255,255,255,0.2); color: white; border-radius: 4px; cursor: pointer;">
+                    <option value="2025">2025</option>
+                    <option value="2026" selected>2026</option>
+                    <option value="2027">2027</option>
+                </select>
+            </div>
+
+            <div class="header-region-selector">
+                <label for="region-header">Region:</label>
+                <select id="region-header" class="region-select-header">
+                    <option value="amaravati">Amaravati, India</option>
+                    <option value="hyderabad">Hyderabad, India</option>
+                    <option value="atlanta">Atlanta, USA</option>
+                    <option value="chicago">Chicago, USA</option>
+                    <option value="newark">Newark, USA</option>
+                    <option value="newyork">New York, USA</option>
+                    <option value="phoenix">Phoenix, USA</option>
+                    <option value="sanfrancisco">San Francisco, USA</option>
+                    <option value="losangeles">Los Angeles, USA</option>
+                    <option value="toronto">Toronto, Canada</option>
+                    <option value="london">London, UK</option>
+                    <option value="auckland">Auckland, New Zealand</option>
+                    <option value="sydney">Sydney, Australia</option>
+                    <option value="capetown">Cape Town, South Africa</option>
+                    <option value="riyadh">Riyadh, Saudi Arabia</option>
+                    <option value="dubai">Dubai, UAE</option>
+                    <option value="singapore">Singapore</option>
+                    <option value="kualalumpur">Kuala Lumpur, Malaysia</option>
+                </select>
+            </div>
+        </div>
+    </header>
+
+    <!-- Muhurtam Category Tabs -->
+    <div class="category-tabs-container">
+        <div class="category-tabs" id="category-tabs">
+            <button class="category-tab" data-category="all">
+                <span class="material-icons tab-icon">calendar_month</span>
+                <span>All Dates</span>
+            </button>
+            <button class="category-tab" data-category="marriage">
+                <span class="material-icons tab-icon">favorite</span>
+                <span>Marriage</span>
+            </button>
+            <button class="category-tab" data-category="grihapravesam">
+                <span class="material-icons tab-icon">home</span>
+                <span>Grihapravesam</span>
+            </button>
+            <button class="category-tab" data-category="vehicle">
+                <span class="material-icons tab-icon">directions_car</span>
+                <span>Vehicle Purchase</span>
+            </button>
+            <button class="category-tab" data-category="naamkaranam">
+                <span class="material-icons tab-icon">child_care</span>
+                <span>Naamkaranam</span>
+            </button>
+            <button class="category-tab" data-category="annaprasanam">
+                <span class="material-icons tab-icon">restaurant</span>
+                <span>Annaprasanam</span>
+            </button>
+            <button class="category-tab" data-category="upanayanam">
+                <span class="material-icons tab-icon">school</span>
+                <span>Upanayanam</span>
+            </button>
+        </div>
+    </div>
+
+    <div class="container-clean">
+        <main class="main-content">
+            <section class="year-overview">
+                <h2 id="year-title">2026 Calendar</h2>
+                <div class="months-grid" id="months-grid">
+                    <!-- Month calendars will be generated by JavaScript -->
+                </div>
+            </section>
+
+            <!-- Telugu Festivals Table -->
+            <section class="festivals-section">
+                <h2 id="festivals-title">Telugu Festivals 2026</h2>
+                <div class="festivals-table-container">
+                    <table class="festivals-table">
+                        <thead>
+                            <tr>
+                                <th>Date</th>
+                                <th>Festival Name</th>
+                            </tr>
+                        </thead>
+                        <tbody id="festivals-tbody">
+                            <tr>
+                                <td>January 14</td>
+                                <td>Makara Sankranti / Pongal</td>
+                            </tr>
+                            <tr>
+                                <td>February 26</td>
+                                <td>Maha Shivaratri</td>
+                            </tr>
+                            <tr>
+                                <td>March 22</td>
+                                <td>Ugadi (Telugu New Year)</td>
+                            </tr>
+                            <tr>
+                                <td>April 1</td>
+                                <td>Sri Rama Navami</td>
+                            </tr>
+                            <tr>
+                                <td>April 13</td>
+                                <td>Hanuman Jayanti</td>
+                            </tr>
+                            <tr>
+                                <td>August 15</td>
+                                <td>Independence Day / Krishna Janmashtami</td>
+                            </tr>
+                            <tr>
+                                <td>August 26</td>
+                                <td>Vinayaka Chavithi (Ganesh Chaturthi)</td>
+                            </tr>
+                            <tr>
+                                <td>September 24</td>
+                                <td>Dasara / Vijayadashami</td>
+                            </tr>
+                            <tr>
+                                <td>October 3</td>
+                                <td>Dussehra</td>
+                            </tr>
+                            <tr>
+                                <td>October 20</td>
+                                <td>Deepavali (Diwali)</td>
+                            </tr>
+                            <tr>
+                                <td>November 1</td>
+                                <td>Karthika Masam Begins</td>
+                            </tr>
+                            <tr>
+                                <td>December 25</td>
+                                <td>Christmas</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <section class="info-section">
+                <h2 id="about-title">About Panchangam</h2>
+                <div id="about-content">
+                    <p>Telugu Calendar provides a comprehensive Panchangam (Hindu calendar and almanac which follows traditional units of Hindu timekeeping. It provides important daily information including:</p>
+                    <ul>
+                        <li><strong>Tithi</strong> - Lunar day</li>
+                        <li><strong>Nakshatram</strong> - Star/Constellation</li>
+                        <li><strong>Yoga</strong> - Auspicious period</li>
+                        <li><strong>Karanam</strong> - Half of Tithi</li>
+                        <li><strong>Rahukalam</strong> - Inauspicious period</li>
+                        <li><strong>Yamagandam</strong> - Inauspicious period</li>
+                        <li><strong>Varjyam</strong> - Time to avoid</li>
+                        <li><strong>Durmuhurtam</strong> - Inauspicious times</li>
+                        <li><strong>Abhijit Muhurtam</strong> - Auspicious time</li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- FAQ Section -->
+            <section class="faq-section">
+                <h2 class="faq-title">Frequently Asked Questions</h2>
+
+                <div class="faq-item">
+                    <h3 class="faq-question">What is the Telugu Panchangam and how is it different from the regular calendar?</h3>
+                    <div class="faq-answer">
+                        <p>The Telugu Panchangam is a traditional Hindu calendar system that combines lunar and solar calculations to track time. Unlike the Gregorian calendar which is purely solar, the Panchangam tracks five key elements (Pancha means five, Anga means limb): Tithi (lunar day), Vara (weekday), Nakshatra (constellation), Yoga (auspicious period), and Karana (half-day). It provides essential information for determining auspicious times for religious ceremonies, festivals, and important life events based on Vedic astrology principles.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <h3 class="faq-question">How do I use the yearly calendar view effectively?</h3>
+                    <div class="faq-answer">
+                        <p>The yearly calendar view provides a comprehensive overview of all 12 months at once, making it easy to plan ahead for festivals, auspicious days, and important events throughout the year. You can see major festivals, Ekadasi days, Pournami (full moon), and Amavasya (new moon) days at a glance. Click on any specific date to view detailed Panchangam information including Tithi, Nakshatra, Rahu Kalam, Yamagandam, and auspicious timings for that day.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <h3 class="faq-question">What are Sukla Paksha and Krishna Paksha?</h3>
+                    <div class="faq-answer">
+                        <p>Each lunar month in the Telugu Panchangam is divided into two fortnights called Pakshas. Sukla Paksha (also called Shukla Paksha) is the bright fortnight when the moon is waxing from new moon to full moon, spanning 15 Tithis. Krishna Paksha is the dark fortnight when the moon is waning from full moon to new moon. Many festivals and auspicious activities are performed during Sukla Paksha, while certain rituals for ancestors are conducted during Krishna Paksha.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <h3 class="faq-question">Why is Ekadasi important and when does it occur?</h3>
+                    <div class="faq-answer">
+                        <p>Ekadasi is the 11th Tithi (lunar day) that occurs twice every lunar month - once during Sukla Paksha (waxing moon) and once during Krishna Paksha (waning moon). It is considered highly auspicious in Hindu tradition, dedicated to Lord Vishnu. Devotees observe fasting, prayers, and spiritual practices on Ekadasi days. The yearly calendar marks all Ekadasi days, making it easy to plan your spiritual observances throughout the year. Some important Ekadasis include Vaikunta Ekadasi, Amalaki Ekadasi, and Nirjala Ekadasi.</p>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <footer class="site-footer">
+        <div class="footer-content">
+            <div class="footer-section footer-main">
+                <div class="footer-logo">
+                    <img src="images/logo-white.svg" alt="Telugu Calendar" class="footer-logo-image">
+                </div>
+                <h3>Telugu Calendar</h3>
+                <p><a href="https://www.telugucalendar.io" style="color: #ccc; text-decoration: none;">www.telugucalendar.io</a></p>
+                <p>Your comprehensive guide to Telugu Panchangam and auspicious times</p>
+            </div>
+
+            <div class="footer-section">
+                <h4>Quick Links</h4>
+                <ul class="footer-links">
+                    <li><a href="today.html">Home (Today)</a></li>
+                    <li><a href="month-calendar.html">Months</a></li>
+                    <li><a href="index.html">Year</a></li>
+                    <li><a href="festivals.html">Festivals</a></li>
+                    <li><a href="muhurtam.html">Muhurtam</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h4>Information</h4>
+                <ul class="footer-links">
+                    <li><a href="privacy-policy.html">Privacy Policy</a></li>
+                    <li><a href="about.html">About telugucalendar.io</a></li>
+                    <li><a href="sitemap.html">Site Map</a></li>
+                    <li><a href="faq.html">FAQ's</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h4>Available Regions</h4>
+                <ul class="footer-links">
+                    <li>India (Amaravati, Hyderabad)</li>
+                    <li>USA (New York, Chicago, Phoenix)</li>
+                    <li>Canada (Toronto)</li>
+                    <li>UK (London)</li>
+                    <li>Australia (Sydney)</li>
+                    <li>UAE (Dubai)</li>
+                    <li>Singapore, Malaysia</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p class="footer-made-with">Made with <span style="color: #ff0000;">❤</span> for all the Telugites</p>
+            <p class="footer-copyright">&copy; 2025 Pixwell Design Studio LLC. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <style>
+        /* Muhurtam Category Tabs */
+        .category-tabs-container {
+            background: white;
+            padding: 20px 0;
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        .category-tabs {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            gap: 10px;
+            overflow-x: auto;
+            padding: 0 20px;
+        }
+
+        .category-tab {
+            padding: 12px 24px;
+            background: #f5f5f5;
+            border: none;
+            cursor: pointer;
+            white-space: nowrap;
+            font-size: 0.95em;
+            font-weight: 500;
+            color: #333;
+            transition: all 0.3s ease;
+            flex-shrink: 0;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            border-radius: 8px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+        }
+
+        .category-tab .tab-icon {
+            font-size: 1.2em;
+            transition: transform 0.3s ease;
+        }
+
+        .category-tab:hover {
+            background: #e0e0e0;
+            transform: translateY(-2px);
+            box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+        }
+
+        .category-tab:hover .tab-icon {
+            transform: scale(1.1);
+        }
+
+        .category-tab.active {
+            background: linear-gradient(135deg, #003CE2 0%, #0052FF 100%);
+            color: white;
+            box-shadow: 0 4px 12px rgba(0, 60, 226, 0.3);
+        }
+
+        /* Muhurtam date highlighting */
+        .mini-cal-date.muhurtam-date {
+            background: linear-gradient(135deg, #003CE2 0%, #0052FF 100%);
+            color: white;
+            font-weight: 600;
+            border-radius: 50%;
+            position: relative;
+        }
+
+        .mini-cal-date.muhurtam-date::after {
+            content: '';
+            position: absolute;
+            bottom: 2px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 4px;
+            height: 4px;
+            background: #FFD700;
+            border-radius: 50%;
+        }
+
+        @media (max-width: 768px) {
+            .category-tabs {
+                gap: 5px;
+            }
+
+            .category-tab {
+                padding: 10px 16px;
+                font-size: 0.85em;
+            }
+        }
+    </style>
+
+    <script src="js/api-config.js"></script>
+    <script src="js/common.js"></script>
+    <script src="js/index.js"></script>
+</body>
+</html>

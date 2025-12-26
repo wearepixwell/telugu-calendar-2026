@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Telugu Calendar Daily Details - Complete Panchangam information with Nakshatram, Tithi, Rahukalam, and auspicious times">
+    <title>Daily Panchangam - Telugu Calendar 2026</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="icon" type="image/svg+xml" href="images/favicon.svg">
+    <link rel="alternate icon" href="images/favicon.svg">
+    <link rel="stylesheet" href="css/style.css?v=3">
+</head>
+<body>
+    <!-- Top Navigation Bar -->
+    <nav class="top-nav">
+        <div class="nav-container">
+            <a href="today.html" class="logo">
+                <img src="images/logo.svg" alt="Telugu Calendar" class="logo-image">
+            </a>
+
+            <ul class="nav-menu">
+                <li><a href="today.html" class="active" id="nav-today">Today</a></li>
+                <li><a href="month-calendar.html" id="nav-months">Months</a></li>
+                <li><a href="index.html" id="nav-year">Year</a></li>
+                <li><a href="festivals.html" id="nav-festivals">Festivals</a></li>
+                <li><a href="muhurtam.html" id="nav-muhurtam">Muhurtam</a></li>
+            </ul>
+
+            <div class="nav-controls">
+                <div class="region-selector-nav">
+                    <select id="region" class="nav-select">
+                        <option value="amaravati">Amaravati, India</option>
+                        <option value="hyderabad">Hyderabad, India</option>
+                        <option value="atlanta">Atlanta, USA</option>
+                        <option value="chicago">Chicago, USA</option>
+                        <option value="newark">Newark, USA</option>
+                        <option value="newyork">New York, USA</option>
+                        <option value="phoenix">Phoenix, USA</option>
+                        <option value="sanfrancisco">San Francisco, USA</option>
+                        <option value="losangeles">Los Angeles, USA</option>
+                        <option value="toronto">Toronto, Canada</option>
+                        <option value="london">London, UK</option>
+                        <option value="auckland">Auckland, New Zealand</option>
+                        <option value="sydney">Sydney, Australia</option>
+                        <option value="capetown">Cape Town, South Africa</option>
+                        <option value="riyadh">Riyadh, Saudi Arabia</option>
+                        <option value="dubai">Dubai, UAE</option>
+                        <option value="singapore">Singapore</option>
+                        <option value="kualalumpur">Kuala Lumpur, Malaysia</option>
+                    </select>
+                </div>
+
+                <button id="lang-toggle" class="lang-btn-nav">
+                    <span class="lang-en">తెలుగు</span>
+                    <span class="lang-te" style="display:none;">English</span>
+                </button>
+            </div>
+
+            <button class="mobile-menu-toggle" id="mobile-menu-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+
+            <button id="lang-toggle-mobile" class="lang-toggle-mobile">
+                <span class="lang-mobile-en">తె</span>
+                <span class="lang-mobile-te" style="display:none;">EN</span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Header -->
+    <header>
+        <div class="header-content">
+            <h1 id="date-title">Daily Panchangam</h1>
+            <p id="date-subtitle">Complete Panchangam details with auspicious times</p>
+
+            <div class="header-region-selector">
+                <label for="region-header">Region:</label>
+                <select id="region-header" class="region-select-header">
+                    <option value="amaravati">Amaravati, India</option>
+                    <option value="hyderabad">Hyderabad, India</option>
+                    <option value="atlanta">Atlanta, USA</option>
+                    <option value="chicago">Chicago, USA</option>
+                    <option value="newark">Newark, USA</option>
+                    <option value="newyork">New York, USA</option>
+                    <option value="phoenix">Phoenix, USA</option>
+                    <option value="sanfrancisco">San Francisco, USA</option>
+                    <option value="losangeles">Los Angeles, USA</option>
+                    <option value="toronto">Toronto, Canada</option>
+                    <option value="london">London, UK</option>
+                    <option value="auckland">Auckland, New Zealand</option>
+                    <option value="sydney">Sydney, Australia</option>
+                    <option value="capetown">Cape Town, South Africa</option>
+                    <option value="riyadh">Riyadh, Saudi Arabia</option>
+                    <option value="dubai">Dubai, UAE</option>
+                    <option value="singapore">Singapore</option>
+                    <option value="kualalumpur">Kuala Lumpur, Malaysia</option>
+                </select>
+            </div>
+        </div>
+    </header>
+
+    <div class="container-clean">
+        <main class="main-content">
+            <!-- Date Navigation -->
+            <div class="date-navigation">
+                <button id="prev-date" class="nav-btn">
+                    <span class="material-icons">chevron_left</span>
+                    <span id="prev-label">Previous Day</span>
+                </button>
+                <h2 id="date-display">Loading...</h2>
+                <button id="next-date" class="nav-btn">
+                    <span id="next-label">Next Day</span>
+                    <span class="material-icons">chevron_right</span>
+                </button>
+            </div>
+
+            <!-- Panchangam Details -->
+            <div class="panchangam-details" id="panchangam-details">
+                <p>Loading Panchangam data...</p>
+            </div>
+
+            <!-- Muhurtam Information -->
+            <section class="muhurtam-today-section" id="muhurtam-today-section" style="display: none;">
+                <h2 class="section-title">
+                    <span class="material-icons" style="vertical-align: middle; margin-right: 8px;">favorite</span>
+                    Auspicious Muhurtams for This Date
+                </h2>
+                <div class="muhurtam-today-grid" id="muhurtam-today-grid">
+                    <!-- Will be populated by JavaScript -->
+                </div>
+                <p class="no-muhurtam-message" id="no-muhurtam-message" style="display: none;">
+                    No specific muhurtams found for this date. This date may not be auspicious for major ceremonies according to traditional calculations.
+                </p>
+            </section>
+
+            <!-- FAQ Section -->
+            <section class="faq-section">
+                <h2 class="faq-title">Frequently Asked Questions</h2>
+
+                <div class="faq-item">
+                    <h3 class="faq-question">What is Telugu Panchangam and why is it important?</h3>
+                    <div class="faq-answer">
+                        <p>Telugu Panchangam is a traditional Hindu calendar and almanac that provides essential astronomical and astrological information for each day. It includes details about Tithi (lunar day), Nakshatra (constellation), Yoga, Karana, sunrise, sunset, and auspicious/inauspicious times. Panchangam is crucial for determining the right time for religious ceremonies, festivals, weddings, and other important life events according to Vedic astrology.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <h3 class="faq-question">How do I find today's Rahu Kalam timings?</h3>
+                    <div class="faq-answer">
+                        <p>Rahu Kalam (also called Rahu Kaal) is an inauspicious period of approximately 90 minutes each day that occurs at different times depending on the day of the week. You can find today's Rahu Kalam timings in the Panchangam details above, calculated specifically for your selected location. During Rahu Kalam, it's traditionally advised to avoid starting new ventures, important meetings, or auspicious activities.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <h3 class="faq-question">What is Yamagandam and when does it occur?</h3>
+                    <div class="faq-answer">
+                        <p>Yamagandam (also spelled Yamaganda or Yama Ghantaka) is an inauspicious time period associated with Lord Yama, the god of death. Like Rahu Kalam, it lasts approximately 90 minutes and occurs at different times each day of the week. The timing is calculated based on sunrise and is specific to your location. Today's Yamagandam timing is displayed in the Panchangam section above. It's best to avoid important activities during this period.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <h3 class="faq-question">What is Abhijit Muhurtam and why is it considered auspicious?</h3>
+                    <div class="faq-answer">
+                        <p>Abhijit Muhurtam is considered one of the most auspicious time periods in Vedic astrology. It occurs around midday for approximately 48 minutes and is calculated as the 8th Muhurta of the day. This time is believed to be free from all doshas (flaws) and is excellent for starting new ventures, important meetings, travel, and auspicious activities. Unlike other Muhurtams, Abhijit doesn't require extensive Panchangam consultation and is universally favorable.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <h3 class="faq-question">What is the significance of Amavasya and Pournami in Telugu culture?</h3>
+                    <div class="faq-answer">
+                        <p>Amavasya (New Moon) and Pournami (Full Moon) are highly significant in Telugu and Hindu culture. Amavasya is ideal for performing Pitru Tarpana (rituals for ancestors), meditation, and introspection. It's considered important for spiritual practices. Pournami is auspicious for prayers, fasting (especially for Lord Satyanarayan), and performing pujas. Many Telugu festivals are celebrated on Pournami days, including Guru Pournami and Kartika Pournami.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <h3 class="faq-question">What is Tithi and how is it different from a regular calendar date?</h3>
+                    <div class="faq-answer">
+                        <p>Tithi is a lunar day in the Hindu calendar, based on the angular relationship between the Sun and Moon. Unlike the solar calendar (Gregorian calendar) where a day is exactly 24 hours, a Tithi can vary from 19 to 26 hours. There are 30 Tithis in a lunar month - 15 in Shukla Paksha (waxing phase) and 15 in Krishna Paksha (waning phase). Tithis are crucial for determining festival dates and auspicious timings in Telugu culture.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <h3 class="faq-question">What is Nakshatra and why does it matter in Telugu astrology?</h3>
+                    <div class="faq-answer">
+                        <p>Nakshatra refers to the 27 lunar constellations or star groups in Vedic astrology. Each Nakshatra has unique characteristics and influences. The Moon passes through each Nakshatra as it orbits Earth, spending approximately one day in each. Nakshatras are essential for birth chart analysis, determining compatibility for marriages, selecting Muhurtams for important events, and understanding daily cosmic influences on activities and decisions.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <h3 class="faq-question">How accurate is the Telugu Panchangam for my location?</h3>
+                    <div class="faq-answer">
+                        <p>Our Telugu Panchangam calculations are highly accurate and location-specific. We use advanced astronomical algorithms (Swiss Ephemeris) with Lahiri Ayanamsa to calculate precise timings for your selected region. All times including sunrise, sunset, Rahu Kalam, Yamagandam, and Muhurtams are calculated based on your location's latitude, longitude, and timezone. This ensures you receive authentic Panchangam information tailored to your geographical area.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <h3 class="faq-question">Can I use this Telugu Calendar for planning weddings and important events?</h3>
+                    <div class="faq-answer">
+                        <p>Yes, our Telugu Calendar provides essential Panchangam information that can help in planning auspicious occasions. However, for major life events like weddings, Grihapravesam (housewarming), or Upanayanam (thread ceremony), we recommend consulting with a qualified astrologer who can analyze individual horoscopes and provide personalized Muhurtam recommendations. Our calendar serves as an excellent reference for general auspicious timings and festival dates.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <h3 class="faq-question">What is Durmuhurtam and should I avoid it?</h3>
+                    <div class="faq-answer">
+                        <p>Durmuhurtam (also called Dur Muhurat) is an inauspicious time period that occurs twice daily and lasts for approximately 48 minutes. "Dur" means bad or difficult, and "Muhurtam" means time period. It's traditionally advised to avoid starting new activities, important journeys, or auspicious ceremonies during Durmuhurtam. The exact timing varies daily and is calculated based on sunrise for your specific location.</p>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <footer class="site-footer">
+        <div class="footer-content">
+            <div class="footer-section footer-main">
+                <div class="footer-logo">
+                    <img src="images/logo-white.svg" alt="Telugu Calendar" class="footer-logo-image">
+                </div>
+                <h3>Telugu Calendar</h3>
+                <p><a href="https://www.telugucalendar.io" style="color: #ccc; text-decoration: none;">www.telugucalendar.io</a></p>
+                <p>Your comprehensive guide to Telugu Panchangam and auspicious times</p>
+            </div>
+
+            <div class="footer-section">
+                <h4>Quick Links</h4>
+                <ul class="footer-links">
+                    <li><a href="today.html">Home (Today)</a></li>
+                    <li><a href="month-calendar.html">Months</a></li>
+                    <li><a href="index.html">Year</a></li>
+                    <li><a href="festivals.html">Festivals</a></li>
+                    <li><a href="muhurtam.html">Muhurtam</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h4>Information</h4>
+                <ul class="footer-links">
+                    <li><a href="privacy-policy.html">Privacy Policy</a></li>
+                    <li><a href="about.html">About telugucalendar.io</a></li>
+                    <li><a href="sitemap.html">Site Map</a></li>
+                    <li><a href="faq.html">FAQ's</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h4>Available Regions</h4>
+                <ul class="footer-links">
+                    <li>India (Amaravati, Hyderabad)</li>
+                    <li>USA (New York, Chicago, Phoenix)</li>
+                    <li>Canada (Toronto)</li>
+                    <li>UK (London)</li>
+                    <li>Australia (Sydney)</li>
+                    <li>UAE (Dubai)</li>
+                    <li>Singapore, Malaysia</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p class="footer-made-with">Made with <span style="color: #ff0000;">❤</span> for all the Telugites</p>
+            <p class="footer-copyright">&copy; 2025 Pixwell Design Studio LLC. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <style>
+        /* Muhurtam Today Section */
+        .muhurtam-today-section {
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            margin: 30px 0;
+        }
+
+        .muhurtam-today-section .section-title {
+            color: #003CE2;
+            font-size: 1.8em;
+            margin-bottom: 25px;
+            display: flex;
+            align-items: center;
+        }
+
+        .muhurtam-today-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 20px;
+        }
+
+        .muhurtam-card {
+            background: linear-gradient(135deg, #f8f9ff 0%, #eff2ff 100%);
+            padding: 25px;
+            border-radius: 10px;
+            border-left: 4px solid #003CE2;
+            transition: all 0.3s ease;
+        }
+
+        .muhurtam-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 6px 20px rgba(0, 60, 226, 0.15);
+        }
+
+        .muhurtam-card-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 15px;
+        }
+
+        .muhurtam-card-icon {
+            width: 45px;
+            height: 45px;
+            background: linear-gradient(135deg, #003CE2 0%, #0052FF 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+        }
+
+        .muhurtam-card-title {
+            font-size: 1.3em;
+            font-weight: 600;
+            color: #003CE2;
+        }
+
+        .muhurtam-card-details {
+            color: #666;
+            line-height: 1.6;
+        }
+
+        .muhurtam-card-details p {
+            margin: 8px 0;
+            font-size: 0.95em;
+        }
+
+        .muhurtam-card-details strong {
+            color: #333;
+        }
+
+        .no-muhurtam-message {
+            text-align: center;
+            padding: 40px 20px;
+            color: #666;
+            font-size: 1.1em;
+        }
+
+        @media (max-width: 768px) {
+            .muhurtam-today-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .muhurtam-today-section {
+                padding: 20px;
+            }
+
+            .muhurtam-today-section .section-title {
+                font-size: 1.4em;
+            }
+        }
+    </style>
+
+    <script src="js/api-config.js"></script>
+    <script src="js/common.js"></script>
+    <script src="js/date.js"></script>
+</body>
+</html>

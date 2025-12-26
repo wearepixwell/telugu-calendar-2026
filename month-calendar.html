@@ -1,0 +1,991 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Telugu Calendar Monthly View - Daily Telugu Calendar">
+    <title>Monthly Calendar - Telugu Calendar 2026</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="icon" type="image/svg+xml" href="images/favicon.svg">
+    <link rel="alternate icon" href="images/favicon.svg">
+    <link rel="stylesheet" href="css/style.css?v=3">
+    <style>
+        .month-tabs-container {
+            background: white;
+            padding: 20px 0;
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        .month-tabs {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            gap: 10px;
+            overflow-x: auto;
+            padding: 0 20px;
+        }
+
+        .month-tab {
+            padding: 12px 24px;
+            background: #f5f5f5;
+            border: none;
+            cursor: pointer;
+            white-space: nowrap;
+            font-size: 0.95em;
+            font-weight: 500;
+            color: #333;
+            transition: all 0.2s ease;
+            flex-shrink: 0;
+        }
+
+        .month-tab:hover {
+            background: #e5e5e5;
+        }
+
+        .month-tab.active {
+            background: #003CE2;
+            color: white;
+        }
+
+        .calendar-view {
+            max-width: 1400px;
+            margin: 30px auto;
+            padding: 0 20px;
+        }
+
+        .calendar-full {
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+
+        .calendar-header-days {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            gap: 10px;
+            margin-bottom: 10px;
+        }
+
+        .calendar-day-header {
+            text-align: center;
+            font-weight: 600;
+            padding: 15px;
+            background: #f9f9f9;
+            color: #333;
+        }
+
+        .calendar-dates {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            gap: 10px;
+        }
+
+        .calendar-date {
+            aspect-ratio: 1;
+            border: 1px solid #e0e0e0;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            justify-content: flex-start;
+            padding: 8px;
+            cursor: pointer;
+            text-decoration: none;
+            color: #333;
+            transition: all 0.2s ease;
+            gap: 4px;
+        }
+
+        .calendar-date:hover {
+            background: #f0f0f0;
+            border-color: #003CE2;
+        }
+
+        .calendar-date.empty {
+            background: #fafafa;
+            cursor: default;
+            border-color: #f5f5f5;
+        }
+
+        .calendar-date.empty:hover {
+            background: #fafafa;
+            border-color: #f5f5f5;
+        }
+
+        .date-num {
+            font-size: 1.8em;
+            font-weight: 700;
+            line-height: 1;
+        }
+
+        .date-info {
+            font-size: 0.7em;
+            color: #666;
+            text-align: left;
+            width: 100%;
+            line-height: 1.4;
+        }
+
+        .date-masam {
+            font-size: 0.7em;
+            color: #333;
+            font-weight: 500;
+        }
+
+        .date-weekday {
+            font-size: 0.65em;
+            color: #003CE2;
+            font-weight: 500;
+        }
+
+        .date-tithi {
+            font-size: 0.65em;
+            color: #666;
+        }
+
+        .date-time {
+            font-size: 0.6em;
+            color: #d32f2f;
+            line-height: 1.3;
+        }
+
+        .date-time.good {
+            color: #388e3c;
+        }
+
+        .month-festivals-section {
+            margin-top: 40px;
+            padding: 30px;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        .month-festivals-section h3 {
+            color: #003CE2;
+            margin-bottom: 20px;
+            text-align: center;
+            font-size: 1.5em;
+        }
+
+        .festival-link {
+            color: #003CE2;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.2s ease;
+        }
+
+        .festival-link:hover {
+            color: #0028a3;
+            text-decoration: underline;
+        }
+
+        @media (max-width: 768px) {
+            .month-tabs {
+                gap: 5px;
+            }
+
+            .month-tab {
+                padding: 10px 16px;
+                font-size: 0.85em;
+            }
+
+            .calendar-date {
+                padding: 5px;
+            }
+
+            .date-num {
+                font-size: 1.2em;
+            }
+
+            .date-info {
+                font-size: 0.7em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Top Navigation Bar -->
+    <nav class="top-nav">
+        <div class="nav-container">
+            <a href="today.html" class="logo">
+                <img src="images/logo.svg" alt="Telugu Calendar" class="logo-image">
+            </a>
+
+            <ul class="nav-menu">
+                <li><a href="today.html" id="nav-today">Today</a></li>
+                <li><a href="month-calendar.html" class="active" id="nav-months">Months</a></li>
+                <li><a href="index.html" id="nav-year">Year</a></li>
+                <li><a href="festivals.html" id="nav-festivals">Festivals</a></li>
+                <li><a href="muhurtam.html" id="nav-muhurtam">Muhurtam</a></li>
+            </ul>
+
+            <div class="nav-controls">
+                <div class="region-selector-nav">
+                    <select id="region" class="nav-select">
+                        <option value="amaravati">Amaravati, India</option>
+                        <option value="hyderabad">Hyderabad, India</option>
+                        <option value="atlanta">Atlanta, USA</option>
+                        <option value="chicago">Chicago, USA</option>
+                        <option value="newark">Newark, USA</option>
+                        <option value="newyork">New York, USA</option>
+                        <option value="phoenix">Phoenix, USA</option>
+                        <option value="sanfrancisco">San Francisco, USA</option>
+                        <option value="losangeles">Los Angeles, USA</option>
+                        <option value="toronto">Toronto, Canada</option>
+                        <option value="london">London, UK</option>
+                        <option value="auckland">Auckland, New Zealand</option>
+                        <option value="sydney">Sydney, Australia</option>
+                        <option value="capetown">Cape Town, South Africa</option>
+                        <option value="riyadh">Riyadh, Saudi Arabia</option>
+                        <option value="dubai">Dubai, UAE</option>
+                        <option value="singapore">Singapore</option>
+                        <option value="kualalumpur">Kuala Lumpur, Malaysia</option>
+                    </select>
+                </div>
+
+                <button id="lang-toggle" class="lang-btn-nav">
+                    <span class="lang-en">తెలుగు</span>
+                    <span class="lang-te" style="display:none;">English</span>
+                </button>
+            </div>
+
+            <button class="mobile-menu-toggle" id="mobile-menu-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+
+            <button id="lang-toggle-mobile" class="lang-toggle-mobile">
+                <span class="lang-mobile-en">తె</span>
+                <span class="lang-mobile-te" style="display:none;">EN</span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Header -->
+    <header>
+        <div class="header-content">
+            <h1 id="months-page-title">Telugu Panchangam Monthly View</h1>
+            <p id="months-subtitle">Browse through each month to view detailed daily Panchangam with Tithi, Nakshatram, and auspicious times</p>
+
+            <div class="header-year-selector" style="margin-top: 15px; text-align: center;">
+                <label for="year-select" style="font-weight: 500; margin-right: 10px;">Year:</label>
+                <select id="year-select" style="padding: 8px 16px; font-size: 1em; border: 1px solid rgba(255,255,255,0.3); background: rgba(255,255,255,0.2); color: white; border-radius: 4px; cursor: pointer;">
+                    <option value="2025">2025</option>
+                    <option value="2026" selected>2026</option>
+                    <option value="2027">2027</option>
+                </select>
+            </div>
+
+            <div class="header-region-selector">
+                <label for="region-header">Region:</label>
+                <select id="region-header" class="region-select-header">
+                    <option value="amaravati">Amaravati, India</option>
+                    <option value="hyderabad">Hyderabad, India</option>
+                    <option value="atlanta">Atlanta, USA</option>
+                    <option value="chicago">Chicago, USA</option>
+                    <option value="newark">Newark, USA</option>
+                    <option value="newyork">New York, USA</option>
+                    <option value="phoenix">Phoenix, USA</option>
+                    <option value="sanfrancisco">San Francisco, USA</option>
+                    <option value="losangeles">Los Angeles, USA</option>
+                    <option value="toronto">Toronto, Canada</option>
+                    <option value="london">London, UK</option>
+                    <option value="auckland">Auckland, New Zealand</option>
+                    <option value="sydney">Sydney, Australia</option>
+                    <option value="capetown">Cape Town, South Africa</option>
+                    <option value="riyadh">Riyadh, Saudi Arabia</option>
+                    <option value="dubai">Dubai, UAE</option>
+                    <option value="singapore">Singapore</option>
+                    <option value="kualalumpur">Kuala Lumpur, Malaysia</option>
+                </select>
+            </div>
+        </div>
+    </header>
+
+    <!-- Month Tabs -->
+    <div class="month-tabs-container">
+        <div class="month-tabs" id="month-tabs">
+            <button class="month-tab" data-month="0">
+                <span class="month-name-en">January</span>
+                <span class="month-name-te" style="display:none;">జనవరి</span>
+            </button>
+            <button class="month-tab" data-month="1">
+                <span class="month-name-en">February</span>
+                <span class="month-name-te" style="display:none;">ఫిబ్రవరి</span>
+            </button>
+            <button class="month-tab" data-month="2">
+                <span class="month-name-en">March</span>
+                <span class="month-name-te" style="display:none;">మార్చి</span>
+            </button>
+            <button class="month-tab" data-month="3">
+                <span class="month-name-en">April</span>
+                <span class="month-name-te" style="display:none;">ఏప్రిల్</span>
+            </button>
+            <button class="month-tab" data-month="4">
+                <span class="month-name-en">May</span>
+                <span class="month-name-te" style="display:none;">మే</span>
+            </button>
+            <button class="month-tab" data-month="5">
+                <span class="month-name-en">June</span>
+                <span class="month-name-te" style="display:none;">జూన్</span>
+            </button>
+            <button class="month-tab" data-month="6">
+                <span class="month-name-en">July</span>
+                <span class="month-name-te" style="display:none;">జూలై</span>
+            </button>
+            <button class="month-tab" data-month="7">
+                <span class="month-name-en">August</span>
+                <span class="month-name-te" style="display:none;">ఆగస్టు</span>
+            </button>
+            <button class="month-tab" data-month="8">
+                <span class="month-name-en">September</span>
+                <span class="month-name-te" style="display:none;">సెప్టెంబర్</span>
+            </button>
+            <button class="month-tab" data-month="9">
+                <span class="month-name-en">October</span>
+                <span class="month-name-te" style="display:none;">అక్టోబర్</span>
+            </button>
+            <button class="month-tab" data-month="10">
+                <span class="month-name-en">November</span>
+                <span class="month-name-te" style="display:none;">నవంబర్</span>
+            </button>
+            <button class="month-tab" data-month="11">
+                <span class="month-name-en">December</span>
+                <span class="month-name-te" style="display:none;">డిసెంబర్</span>
+            </button>
+        </div>
+    </div>
+
+    <!-- Calendar View -->
+    <div class="calendar-view">
+        <div class="calendar-full">
+            <div class="calendar-header-days">
+                <div class="calendar-day-header" id="sun-label">Sun</div>
+                <div class="calendar-day-header" id="mon-label">Mon</div>
+                <div class="calendar-day-header" id="tue-label">Tue</div>
+                <div class="calendar-day-header" id="wed-label">Wed</div>
+                <div class="calendar-day-header" id="thu-label">Thu</div>
+                <div class="calendar-day-header" id="fri-label">Fri</div>
+                <div class="calendar-day-header" id="sat-label">Sat</div>
+            </div>
+            <div class="calendar-dates" id="calendar-dates">
+                <!-- Calendar dates will be generated by JavaScript -->
+            </div>
+        </div>
+
+        <!-- Month Festivals Table -->
+        <div class="month-festivals-section">
+            <h3 id="festivals-month-title">Festivals This Month</h3>
+            <div class="festivals-table-container">
+                <table class="festivals-table" id="month-festivals-table">
+                    <thead>
+                        <tr>
+                            <th>Date</th>
+                            <th>Festival Name</th>
+                        </tr>
+                    </thead>
+                    <tbody id="month-festivals-tbody">
+                        <!-- Will be populated by JavaScript -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- Month Muhurtams Table -->
+        <div class="month-muhurtams-section" id="month-muhurtams-section" style="display: none;">
+            <h3 id="muhurtams-month-title">Auspicious Muhurtams This Month</h3>
+            <div class="muhurtam-tabs">
+                <button class="muhurtam-tab active" data-muhurtam="marriage">
+                    <span class="material-icons">favorite</span>
+                    <span>Marriage</span>
+                </button>
+                <button class="muhurtam-tab" data-muhurtam="grihapravesam">
+                    <span class="material-icons">home</span>
+                    <span>Grihapravesam</span>
+                </button>
+                <button class="muhurtam-tab" data-muhurtam="vehicle">
+                    <span class="material-icons">directions_car</span>
+                    <span>Vehicle</span>
+                </button>
+                <button class="muhurtam-tab" data-muhurtam="naamkaranam">
+                    <span class="material-icons">child_care</span>
+                    <span>Naamkaranam</span>
+                </button>
+                <button class="muhurtam-tab" data-muhurtam="annaprasanam">
+                    <span class="material-icons">restaurant</span>
+                    <span>Annaprasanam</span>
+                </button>
+                <button class="muhurtam-tab" data-muhurtam="upanayanam">
+                    <span class="material-icons">school</span>
+                    <span>Upanayanam</span>
+                </button>
+            </div>
+            <div class="muhurtam-table-container">
+                <table class="muhurtam-month-table">
+                    <thead>
+                        <tr>
+                            <th>Date</th>
+                            <th>Day</th>
+                            <th>Tithi</th>
+                            <th>Nakshatra</th>
+                            <th>Masa - Paksha</th>
+                        </tr>
+                    </thead>
+                    <tbody id="month-muhurtam-tbody">
+                        <!-- Will be populated by JavaScript -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- FAQ Section -->
+        <div class="faq-section" style="max-width: 1400px; margin: 40px auto; padding: 0 20px;">
+            <h2 class="faq-title">Frequently Asked Questions</h2>
+
+            <div class="faq-item">
+                <h3 class="faq-question">How do I navigate between different months in the Telugu calendar?</h3>
+                <div class="faq-answer">
+                    <p>You can easily navigate between months using the month tabs displayed at the top of the calendar view. Simply click on any month name (January through December) to view that month's calendar. Each calendar shows the complete Panchangam details for every day, including Tithi, Nakshatra, Masa, Durmuhurtam, and Varjyam timings. You can also switch between years using the year selector in the header to plan ahead or look back at previous years.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <h3 class="faq-question">What do the symbols and indicators on the calendar dates mean?</h3>
+                <div class="faq-answer">
+                    <p>The calendar uses several indicators to provide quick information: A filled circle (●) indicates Amavasya (new moon day), while an empty circle (○) shows Pournami (full moon day). Each date displays the Telugu Masam name, Tithi with paksha indicator (S for Sukla Paksha, K for Krishna Paksha), Nakshatra with end time, and inauspicious timings abbreviated as "దు." for Durmuhurtam and "వ." for Varjyam. Click on any date to see complete Panchangam details for that day.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <h3 class="faq-question">Why do some dates show different Telugu months (Masam)?</h3>
+                <div class="faq-answer">
+                    <p>Telugu months (Masam) are based on the lunar calendar and don't align perfectly with Gregorian calendar months. A Telugu month typically spans portions of two Gregorian months. For example, Chaitra Masam might begin in mid-March and continue into mid-April. This is why you'll see different Masam names throughout a Gregorian month. The Telugu month changes when a new moon occurs, marking the beginning of a new lunar month.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <h3 class="faq-question">How can I find auspicious dates for important events in a specific month?</h3>
+                <div class="faq-answer">
+                    <p>To find auspicious dates, browse the monthly calendar and look for specific Tithis known to be favorable for your purpose. For example, Ekadasi (11th Tithi), Pournami (full moon), and certain Nakshatras are considered auspicious. Avoid dates showing extensive Durmuhurtam or Varjyam periods. For major life events like weddings or housewarming ceremonies, it's recommended to consult the Muhurtam page or a qualified astrologer who can consider your personal birth chart along with the Panchangam.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="site-footer">
+        <div class="footer-content">
+            <div class="footer-section footer-main">
+                <div class="footer-logo">
+                    <img src="images/logo-white.svg" alt="Telugu Calendar" class="footer-logo-image">
+                </div>
+                <h3>Telugu Calendar</h3>
+                <p><a href="https://www.telugucalendar.io" style="color: #ccc; text-decoration: none;">www.telugucalendar.io</a></p>
+                <p>Your comprehensive guide to Telugu Panchangam and auspicious times</p>
+            </div>
+
+            <div class="footer-section">
+                <h4>Quick Links</h4>
+                <ul class="footer-links">
+                    <li><a href="today.html">Home (Today)</a></li>
+                    <li><a href="month-calendar.html">Months</a></li>
+                    <li><a href="index.html">Year</a></li>
+                    <li><a href="festivals.html">Festivals</a></li>
+                    <li><a href="muhurtam.html">Muhurtam</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h4>Information</h4>
+                <ul class="footer-links">
+                    <li><a href="privacy-policy.html">Privacy Policy</a></li>
+                    <li><a href="about.html">About telugucalendar.io</a></li>
+                    <li><a href="sitemap.html">Site Map</a></li>
+                    <li><a href="faq.html">FAQ's</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h4>Available Regions</h4>
+                <ul class="footer-links">
+                    <li>India (Amaravati, Hyderabad)</li>
+                    <li>USA (New York, Chicago, Phoenix)</li>
+                    <li>Canada (Toronto)</li>
+                    <li>UK (London)</li>
+                    <li>Australia (Sydney)</li>
+                    <li>UAE (Dubai)</li>
+                    <li>Singapore, Malaysia</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p class="footer-made-with">Made with <span style="color: #ff0000;">❤</span> for all the Telugites</p>
+            <p class="footer-copyright">&copy; 2025 Pixwell Design Studio LLC. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="js/api-config.js"></script>
+    <script src="js/common.js"></script>
+    <script>
+        let currentMonth = 0;
+        let currentYear = 2026;
+
+        document.addEventListener('DOMContentLoaded', function() {
+            // Get month from URL or default to current month
+            const urlParams = new URLSearchParams(window.location.search);
+            currentMonth = parseInt(urlParams.get('month')) || new Date().getMonth();
+            currentYear = parseInt(urlParams.get('year')) || 2026;
+
+            // Set year selector to current year
+            const yearSelect = document.getElementById('year-select');
+            if (yearSelect) {
+                yearSelect.value = currentYear;
+            }
+
+            // Set active tab
+            setActiveTab(currentMonth);
+
+            // Render calendar
+            renderCalendar();
+
+            // Render festivals for this month
+            renderMonthFestivals();
+
+            // Load muhurtams for this month
+            loadMonthMuhurtams();
+
+            // Setup month tab clicks
+            setupMonthTabs();
+
+            // Setup year selector change
+            setupYearSelector();
+        });
+
+        function setupYearSelector() {
+            const yearSelect = document.getElementById('year-select');
+            if (yearSelect) {
+                yearSelect.addEventListener('change', function() {
+                    currentYear = parseInt(this.value);
+                    renderCalendar();
+                    renderMonthFestivals();
+                    loadMonthMuhurtams();
+                    updateURL();
+                });
+            }
+        }
+
+        function setupMonthTabs() {
+            const tabs = document.querySelectorAll('.month-tab');
+            tabs.forEach(tab => {
+                tab.addEventListener('click', function() {
+                    const month = parseInt(this.dataset.month);
+                    currentMonth = month;
+                    setActiveTab(month);
+                    renderCalendar();
+                    renderMonthFestivals();
+                    displayMonthMuhurtams(currentMuhurtamType);
+                    updateURL();
+                });
+            });
+        }
+
+        function setActiveTab(month) {
+            const tabs = document.querySelectorAll('.month-tab');
+            tabs.forEach((tab, index) => {
+                if (parseInt(tab.dataset.month) === month) {
+                    tab.classList.add('active');
+                } else {
+                    tab.classList.remove('active');
+                }
+            });
+        }
+
+        function renderCalendar() {
+            const calendarDates = document.getElementById('calendar-dates');
+            calendarDates.innerHTML = '';
+
+            // Get first day and number of days in month
+            const firstDay = new Date(currentYear, currentMonth, 1).getDay();
+            const daysInMonth = new Date(currentYear, currentMonth + 1, 0).getDate();
+
+            // Add empty cells for days before month starts
+            for (let i = 0; i < firstDay; i++) {
+                const emptyCell = document.createElement('div');
+                emptyCell.className = 'calendar-date empty';
+                calendarDates.appendChild(emptyCell);
+            }
+
+            // Telugu months and weekdays
+            const teluguMonths = ['పుష్యము', 'మాఘము', 'ఫల్గుణము', 'చైత్రము', 'వైశాఖము', 'జ్యేష్ఠము', 'ఆషాఢము', 'శ్రావణము', 'భాద్రపదము', 'ఆశ్వయుజము', 'కార్తీకము', 'మార్గశీర్షము'];
+            const teluguWeekdays = ['ఆదివారము', 'సోమవారము', 'మంగళవారము', 'బుధవారము', 'గురువారము', 'శుక్రవారము', 'శనివారము'];
+            const englishWeekdays = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+
+            // Add cells for each day
+            for (let day = 1; day <= daysInMonth; day++) {
+                const dateCell = document.createElement('a');
+                dateCell.className = 'calendar-date';
+                const dateStr = `${currentYear}-${String(currentMonth + 1).padStart(2, '0')}-${String(day).padStart(2, '0')}`;
+                dateCell.href = `date.html?date=${dateStr}`;
+
+                // Date number
+                const dateNum = document.createElement('div');
+                dateNum.className = 'date-num';
+                dateNum.textContent = day;
+
+                // Container for Panchangam data (will be loaded via API)
+                const dataContainer = document.createElement('div');
+                dataContainer.className = 'date-panchangam-data';
+                dataContainer.innerHTML = '<div class="loading-small">Loading...</div>';
+
+                dateCell.appendChild(dateNum);
+                dateCell.appendChild(dataContainer);
+                calendarDates.appendChild(dateCell);
+
+                // Load Panchangam data from API
+                loadDatePanchangam(day, dateCell, dataContainer);
+            }
+        }
+
+        // Load Panchangam data from API for a specific date
+        async function loadDatePanchangam(day, dateCell, dataContainer) {
+            try {
+                const dateStr = `${currentYear}-${String(currentMonth + 1).padStart(2, '0')}-${String(day).padStart(2, '0')}`;
+                const region = window.teluguCalendar?.currentRegion || 'amaravati';
+                const lang = window.teluguCalendar?.currentLang || 'en';
+
+                // Fetch from API
+                const data = await window.APIService.getPanchangam(dateStr, region);
+
+                if (data) {
+                    // Helper to get bilingual text
+                    const getText = (obj) => {
+                        if (!obj) return '';
+                        return lang === 'te' ? obj.te : obj.en;
+                    };
+
+                    // Parse Durmuhurtam
+                    let durmuhurtam = '';
+                    try {
+                        const durmu = JSON.parse(data.durmuhurtham_json || '[]');
+                        if (durmu.length > 0) {
+                            durmuhurtam = durmu.map(d => `${d.start}-${d.end}`).join(', ');
+                        }
+                    } catch (e) {}
+
+                    // Varjyam
+                    const varjyam = data.varjyam ? `${data.varjyam.start}-${data.varjyam.end}` : '';
+
+                    // Build HTML like reference
+                    let html = '';
+
+                    // Masa name
+                    html += `<div class="date-masam">${getText(data.masa)}</div>`;
+
+                    // Tithi with end time and Paksha indicator
+                    const paksha = data.paksha?.en || '';
+                    const pakshaShort = paksha.includes('Krishna') ? 'K' : 'S';
+                    const tithiText = lang === 'te' ? getText(data.tithi_name) : data.tithi_name.en;
+                    html += `<div class="date-tithi-full"><span class="tithi-paksha">${pakshaShort}.</span>${tithiText}`;
+                    if (data.tithi_end) {
+                        html += ` <span class="tithi-time">${data.tithi_end}</span>`;
+                    }
+                    html += `</div>`;
+
+                    // Nakshatra with end time
+                    html += `<div class="date-nakshatra-full"><span class="naks-label">${lang === 'te' ? 'నక్షత్రం' : 'Nakshatra'}:</span> ${getText(data.nakshatra_name)}`;
+                    if (data.nakshatra_end && data.nakshatra_end !== '23:59') {
+                        html += ` <span class="naks-time">${data.nakshatra_end}</span>`;
+                    }
+                    html += `</div>`;
+
+                    // Durmuhurtam
+                    if (durmuhurtam) {
+                        html += `<div class="date-durmu"><span class="durmu-label">దు.</span>${durmuhurtam}</div>`;
+                    }
+
+                    // Varjyam
+                    if (varjyam) {
+                        html += `<div class="date-varjyam"><span class="varj-label">వ.</span>${varjyam}</div>`;
+                    }
+
+                    // Amavasya/Pournami indicator
+                    if (data.tithi_name?.en === 'Amavasya') {
+                        const indicator = document.createElement('div');
+                        indicator.className = 'moon-indicator amavasya-indicator';
+                        indicator.innerHTML = '●'; // Filled circle
+                        dateCell.insertBefore(indicator, dateCell.firstChild);
+                        dateCell.classList.add('amavasya-date');
+                    } else if (data.tithi_name?.en === 'Pournami') {
+                        const indicator = document.createElement('div');
+                        indicator.className = 'moon-indicator pournami-indicator';
+                        indicator.innerHTML = '○'; // Empty circle
+                        dateCell.insertBefore(indicator, dateCell.firstChild);
+                        dateCell.classList.add('pournami-date');
+                    }
+
+                    dataContainer.innerHTML = html;
+                }
+            } catch (error) {
+                console.error('Error loading Panchangam for day', day, error);
+                dataContainer.innerHTML = '<div class="date-error">-</div>';
+            }
+        }
+
+        function updateURL() {
+            const newURL = `month-calendar.html?month=${currentMonth}&year=${currentYear}`;
+            window.history.pushState({}, '', newURL);
+        }
+
+        // Festivals data organized by month
+        const festivalsByMonth = {
+            0: [ // January
+                { date: 14, name: 'Makara Sankranti / Pongal', slug: 'makara-sankranti' }
+            ],
+            1: [ // February
+                { date: 26, name: 'Maha Shivaratri', slug: 'maha-shivaratri' }
+            ],
+            2: [ // March
+                { date: 22, name: 'Ugadi (Telugu New Year)', slug: 'ugadi' }
+            ],
+            3: [ // April
+                { date: 1, name: 'Sri Rama Navami', slug: 'rama-navami' },
+                { date: 13, name: 'Hanuman Jayanti', slug: 'hanuman-jayanti' }
+            ],
+            4: [], // May
+            5: [], // June
+            6: [], // July
+            7: [ // August
+                { date: 15, name: 'Independence Day / Krishna Janmashtami', slug: 'krishna-janmashtami' },
+                { date: 26, name: 'Vinayaka Chavithi (Ganesh Chaturthi)', slug: 'vinayaka-chavithi' }
+            ],
+            8: [ // September
+                { date: 24, name: 'Dasara / Vijayadashami', slug: 'dasara' }
+            ],
+            9: [ // October
+                { date: 3, name: 'Dussehra', slug: 'dussehra' },
+                { date: 20, name: 'Deepavali (Diwali)', slug: 'deepavali' }
+            ],
+            10: [ // November
+                { date: 1, name: 'Karthika Masam Begins', slug: 'karthika-masam' }
+            ],
+            11: [ // December
+                { date: 25, name: 'Christmas', slug: 'christmas' }
+            ]
+        };
+
+        const monthNames = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+
+        function renderMonthFestivals() {
+            const tbody = document.getElementById('month-festivals-tbody');
+            const festivals = festivalsByMonth[currentMonth] || [];
+
+            if (festivals.length === 0) {
+                tbody.innerHTML = '<tr><td colspan="2" style="text-align: center; color: #999;">No major festivals this month</td></tr>';
+                return;
+            }
+
+            tbody.innerHTML = '';
+            festivals.forEach(festival => {
+                const row = document.createElement('tr');
+                row.innerHTML = `
+                    <td>${monthNames[currentMonth]} ${festival.date}</td>
+                    <td><a href="festival-detail.html?festival=${festival.slug}" class="festival-link">${festival.name}</a></td>
+                `;
+                tbody.appendChild(row);
+            });
+        }
+
+        // Muhurtam functionality
+        let currentMuhurtamType = 'marriage';
+        let monthMuhurtamData = null;
+
+        async function loadMonthMuhurtams() {
+            try {
+                const region = window.teluguCalendar?.currentRegion || 'amaravati';
+                const response = await window.APIService.getMuhurtamAll(currentYear, region);
+
+                if (response && response.muhurtam_data) {
+                    monthMuhurtamData = response.muhurtam_data;
+                    displayMonthMuhurtams(currentMuhurtamType);
+                }
+            } catch (error) {
+                console.error('Error loading month muhurtams:', error);
+            }
+        }
+
+        function displayMonthMuhurtams(muhurtamType) {
+            const section = document.getElementById('month-muhurtams-section');
+            const tbody = document.getElementById('month-muhurtam-tbody');
+
+            if (!monthMuhurtamData || !monthMuhurtamData[muhurtamType]) {
+                section.style.display = 'none';
+                return;
+            }
+
+            const dates = monthMuhurtamData[muhurtamType] || [];
+            const monthDates = dates.filter(d => {
+                const date = new Date(d.date);
+                return date.getMonth() === currentMonth && date.getFullYear() === currentYear;
+            });
+
+            if (monthDates.length === 0) {
+                section.style.display = 'none';
+                return;
+            }
+
+            section.style.display = 'block';
+            tbody.innerHTML = '';
+
+            monthDates.forEach(dateInfo => {
+                const date = new Date(dateInfo.date);
+                const monthDay = date.toLocaleDateString('en-US', { month: 'short', day: 'numeric' });
+
+                const row = document.createElement('tr');
+                row.innerHTML = `
+                    <td>${monthDay}</td>
+                    <td>${dateInfo.day}</td>
+                    <td>${dateInfo.tithi}${dateInfo.tithi_end ? ` (${dateInfo.tithi_end})` : ''}</td>
+                    <td>${dateInfo.nakshatra}${dateInfo.nakshatra_end ? ` (${dateInfo.nakshatra_end})` : ''}</td>
+                    <td>${dateInfo.masa} - ${dateInfo.paksha}</td>
+                `;
+                tbody.appendChild(row);
+            });
+        }
+
+        function setupMuhurtamTabs() {
+            const tabs = document.querySelectorAll('.muhurtam-tab');
+            tabs.forEach(tab => {
+                tab.addEventListener('click', function() {
+                    const muhurtamType = this.dataset.muhurtam;
+                    currentMuhurtamType = muhurtamType;
+
+                    // Update active tab
+                    tabs.forEach(t => t.classList.remove('active'));
+                    this.classList.add('active');
+
+                    // Display muhurtams for selected type
+                    displayMonthMuhurtams(muhurtamType);
+                });
+            });
+        }
+
+        // Setup muhurtam tabs
+        setupMuhurtamTabs();
+
+        // Listen for language changes
+        window.addEventListener('languageChanged', function(e) {
+            renderCalendar();
+            renderMonthFestivals();
+        });
+
+        // Listen for region changes to reload muhurtams
+        window.addEventListener('regionChanged', function(e) {
+            loadMonthMuhurtams();
+        });
+    </script>
+
+    <style>
+        /* Month Muhurtams Section */
+        .month-muhurtams-section {
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            margin: 30px auto;
+            max-width: 1400px;
+        }
+
+        .month-muhurtams-section h3 {
+            color: #003CE2;
+            font-size: 1.6em;
+            margin-bottom: 25px;
+        }
+
+        .muhurtam-tabs {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 25px;
+            flex-wrap: wrap;
+        }
+
+        .muhurtam-tab {
+            padding: 10px 20px;
+            background: #f5f5f5;
+            border: none;
+            cursor: pointer;
+            font-size: 0.9em;
+            font-weight: 500;
+            color: #333;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            border-radius: 8px;
+        }
+
+        .muhurtam-tab .material-icons {
+            font-size: 1.2em;
+        }
+
+        .muhurtam-tab:hover {
+            background: #e0e0e0;
+        }
+
+        .muhurtam-tab.active {
+            background: linear-gradient(135deg, #003CE2 0%, #0052FF 100%);
+            color: white;
+        }
+
+        .muhurtam-table-container {
+            overflow-x: auto;
+        }
+
+        .muhurtam-month-table {
+            width: 100%;
+            border-collapse: collapse;
+            background: white;
+        }
+
+        .muhurtam-month-table thead {
+            background: linear-gradient(135deg, #003CE2 0%, #0052FF 100%);
+        }
+
+        .muhurtam-month-table thead th {
+            color: white;
+            padding: 15px;
+            text-align: left;
+            font-weight: 600;
+        }
+
+        .muhurtam-month-table tbody td {
+            padding: 12px 15px;
+            border-bottom: 1px solid #e0e0e0;
+            color: #333;
+        }
+
+        .muhurtam-month-table tbody tr:hover {
+            background: #f9f9f9;
+        }
+
+        @media (max-width: 768px) {
+            .muhurtam-tabs {
+                gap: 5px;
+            }
+
+            .muhurtam-tab {
+                padding: 8px 14px;
+                font-size: 0.85em;
+            }
+
+            .month-muhurtams-section {
+                padding: 20px;
+            }
+        }
+    </style>
+</body>
+</html>
